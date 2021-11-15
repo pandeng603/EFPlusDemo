@@ -1,4 +1,5 @@
 ﻿using AutoGen;
+using EFPlusDemo.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,8 @@ namespace EFPlusDemo
     {
         static void Main(string[] args)
         {
-            ModelConfig modelConfig = ModelConfig.GetInstance();
-
+            BLLGenerator bLLGenerator = new BLLGenerator();
+            bLLGenerator.GenerateCode();
         }
     }
 }

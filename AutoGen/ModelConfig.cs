@@ -52,7 +52,7 @@ namespace AutoGen
             List<Type> results = new List<Type>();
             foreach (Type type in types)
             {
-                if (type.BaseType != typeof(DbContext) && !type.Name.Contains("<>c"))//我也不知道为什么要加后面这个判断
+                if (type.BaseType != typeof(DbContext) && !type.Name.Contains("<>c"))
                 {
                     results.Add(type);
                 } else if (type.BaseType == typeof(DbContext)) {

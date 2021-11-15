@@ -6,22 +6,23 @@ namespace EFPlusDemo.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Class")]
-    public partial class Class
+    [Table("Category")]
+    public partial class Category
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Class()
+        public Category()
         {
-            Users = new HashSet<User>();
+            Products = new HashSet<Product>();
         }
 
         [Key]
-        [StringLength(1)]
-        public string CId { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int CId { get; set; }
 
-        public int? Code { get; set; }
+        [StringLength(255)]
+        public string Name { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
     }
 }
