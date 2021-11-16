@@ -392,7 +392,7 @@ namespace AutoGen
                 getTotalPageNum.Parameters.Add(new CodeParameterDeclarationExpression(typeof(int), "pageSize"));
                 getTotalPageNum.ReturnType = new CodeTypeReference(typeof(int));
                 //方法体
-                getTotalPageNum.Statements.Add(new CodeSnippetStatement(threeTabs + $"return context.{dbSet}.Count() / pageSize;"));
+                getTotalPageNum.Statements.Add(new CodeSnippetStatement(threeTabs + $"return (context.{dbSet}.Count() + pageSize - 1) / pageSize;"));
                 service.Members.Add(getTotalPageNum);
                 #endregion
 
